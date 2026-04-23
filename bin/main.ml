@@ -23,14 +23,14 @@ let () =
   while !running do
     Graphics.clear_graph ();
 
-    (* Draw game objects. *)
+    let held = Input.drain [] in
+    let fb_keys = Input.poll_fireboy held in
+    if fb_keys.left then fireboy := { !fireboy with x = !fireboy.x -. 6. };
+    if fb_keys.right then fireboy := { !fireboy with x = !fireboy.x +. 6. };
+
     Render.draw_player !fireboy;
 
     Graphics.synchronize ();
 
-    if Graphics.key_pressed () then
-      match Graphics.read_key () with
-      (* Closes window with q *)
-      | 'q' -> running := false
-      | _ -> ()
+    if List.mem 'q' held then running := false
   done
