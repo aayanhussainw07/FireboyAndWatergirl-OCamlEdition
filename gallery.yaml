@@ -1,0 +1,25 @@
+---
+# Members of your group.
+group:
+  - name: Aayan Hussain
+    netid: ah2425
+  - name: Bryan Shao
+    netid: bs887
+  - name: Nhat Minh (Kevin)
+    netid: nt428
+
+# Your PM.
+pm:
+  name: Leo Qian
+  netid: TO DO
+# Set to false if you don't want your gallery entry to be public.
+publish: true
+# Pithy title
+title: "Fireboy & Watergirl"
+# OK if this is a Cornell Github link, but public gallery viewers won't be able to see it.
+git-repo: "https://github.com/cs3110/textbook"
+# Replace the URL with your own demo video.
+demo-video-url: "REPLACE THIS https://www.youtube.com/watch?v=eSBybJGZoCU"
+# Write a short, attention-grabbing description of your project.
+desc: >
+  TO DO
