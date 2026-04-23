@@ -19,7 +19,7 @@
  (name teamproject)
  (synopsis "A short synopsis")
  (description "A longer description")
- (depends ocaml)
+ (depends ocaml graphics)
  (tags
   ("add topics" "to describe" your project)))
 
