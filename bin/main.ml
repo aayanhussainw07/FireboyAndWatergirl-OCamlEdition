@@ -28,6 +28,8 @@ let () =
     if fb_keys.left then fireboy := { !fireboy with x = !fireboy.x -. 6. };
     if fb_keys.right then fireboy := { !fireboy with x = !fireboy.x +. 6. };
 
+    fireboy := Physics.update !fireboy fb_keys;
+
     Render.draw_player !fireboy;
 
     Graphics.synchronize ();
