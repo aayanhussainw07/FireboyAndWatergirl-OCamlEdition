@@ -22,17 +22,14 @@ let () =
   let running = ref true in
   while !running do
     Graphics.clear_graph ();
+    Input.drain ();
 
-    let held = Input.drain [] in
-    let fb_keys = Input.poll_fireboy held in
-    if fb_keys.left then fireboy := { !fireboy with x = !fireboy.x -. 6. };
-    if fb_keys.right then fireboy := { !fireboy with x = !fireboy.x +. 6. };
-
+    let fb_keys = Input.poll_fireboy () in
     fireboy := Physics.update !fireboy fb_keys;
 
     Render.draw_player !fireboy;
 
     Graphics.synchronize ();
 
-    if List.mem 'q' held then running := false
+    if Input.is_held 'q' then running := false
   done
