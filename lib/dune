@@ -1,3 +1,7 @@
 (library
  (name teamproject)
- (libraries graphics))
+ (libraries graphics)
+ (foreign_stubs
+  (language c)
+  (names x11_input)
+  (flags :standard -I/opt/X11/include)))

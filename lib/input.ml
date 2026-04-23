@@ -1,23 +1,49 @@
 type keys = {
   left : bool;
   right : bool;
-  jump : bool;
+  jump_pressed : bool;
 }
 
-let last_seen = Hashtbl.create 10
-let frame = ref 0
+external key_down : char -> bool = "teamproject_key_down"
+
+type snapshot = {
+  left : bool;
+  right : bool;
+  jump : bool;
+  quit : bool;
+}
+
+let empty = { left = false; right = false; jump = false; quit = false }
+
+let current = ref empty
+let previous = ref empty
+
+let sample () =
+  {
+    left = key_down 'j';
+    right = key_down 'l';
+    jump = key_down 'i';
+    quit = key_down 'q';
+  }
 
 let drain () =
-  incr frame;
+  previous := !current;
   while Graphics.key_pressed () do
-    let k = Graphics.read_key () in
-    Hashtbl.replace last_seen k !frame
-  done
+    ignore (Graphics.read_key ())
+  done;
+  current := sample ()
 
 let is_held k =
-  match Hashtbl.find_opt last_seen k with
-  | Some f when !frame - f <= 30 -> true
+  match k with
+  | 'j' -> !current.left
+  | 'l' -> !current.right
+  | 'i' -> !current.jump
+  | 'q' -> !current.quit
   | _ -> false
 
 let poll_fireboy () =
-  { left = is_held 'j'; right = is_held 'l'; jump = is_held 'i' }
+  {
+    left = !current.left;
+    right = !current.right;
+    jump_pressed = !current.jump && not !previous.jump;
+  }

@@ -1,4 +1,4 @@
 (executable
  (public_name teamproject)
  (name main)
- (libraries graphics teamproject))
+ (libraries graphics teamproject unix))
