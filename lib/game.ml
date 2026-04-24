@@ -101,8 +101,8 @@ let tick
       if remaining' <= 0. then init s.level
       else { s with status = Resetting remaining' }
   | Playing ->
-      let fb = Physics.update dt s.fireboy fb_keys in
-      let wg = Physics.update dt s.watergirl wg_keys in
+      let fb = Physics.update dt s.level s.fireboy fb_keys in
+      let wg = Physics.update dt s.level s.watergirl wg_keys in
       let fb = check_death fb s.level in
       let wg = check_death wg s.level in
       if not fb.alive || not wg.alive then
