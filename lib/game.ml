@@ -1,7 +1,7 @@
 open Player
 
 
-let tile_size = 60
+let tile_size = 30
 
 let reset_delay = 0.5
 
