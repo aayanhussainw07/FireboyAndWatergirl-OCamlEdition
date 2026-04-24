@@ -64,15 +64,37 @@ let from_string_list rows =
 let sample_level =
   from_string_list
     [
-      "####################";
-      "#                  #";
-      "#     R      B     #";
-      "#                  #";
-      "#   1         2    #";
-      "#       ######     #";
-      "#                  #";
-      "#   FFFFF  WWWWW   #";
-      "#                  #";
-      "#   E          Q   #";
-      "####################";
+      "############################";
+      "#        R        B      EE#";
+      "#   #######   ###########QQ#";
+      "#                          #";
+      "#      ###########   ##### #";
+      "#                          #";
+      "#   FFFF########WWWW###    #";
+      "#                          #";
+      "#   R#######   B#######    #";
+      "#                          #";
+      "#   ##########       ###   #";
+      "#                          #";
+      "#    ###T###########       #";
+      "#                          #";
+      "####AAAAA############      #";
+      "#                          #";
+      "# 2         FFFF       1   #";
+      "############################";
     ]
+
+    (* Levels
+  # = wall/platform
+  space = empty air
+  F = fire hazard
+  W = water hazard
+  A = acid/green hazard
+  R = red/fire diamond
+  B = blue/water diamond
+  T = button/switch
+  1 = Fireboy spawn
+  2 = Watergirl spawn
+  E = Fireboy exit
+  Q = Watergirl exit
+*)

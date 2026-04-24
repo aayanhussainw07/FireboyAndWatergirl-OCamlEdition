@@ -116,5 +116,6 @@ let tick
 
 
 let render (s : t) : unit =
+  Render.draw_level s.level;        (* draw background first *)
   Render.draw_player s.fireboy;
-  Render.draw_player s.watergirl
+  Render.draw_player s.watergirl;
