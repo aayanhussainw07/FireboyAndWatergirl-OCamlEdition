@@ -17,6 +17,19 @@ let () =
       }
   in
 
+  let watergirl =
+    ref
+      {
+        Player.x = 200.;
+        y = 100.;
+        vx = 0.;
+        vy = 0.;
+        on_ground = false;
+        character = Player.Watergirl;
+        alive = true;
+      }
+  in
+
   (* Opens up a window. *)
   Graphics.open_graph " 1200x700";
   Graphics.set_window_title "Fireboy & Watergirl";
@@ -32,10 +45,12 @@ let () =
     Input.drain ();
 
     let fb_keys = Input.poll_fireboy () in
+    let wg_keys = Input.poll_watergirl () in
     fireboy := Physics.update dt !fireboy fb_keys;
+    watergirl := Physics.update dt !watergirl wg_keys;
 
     Render.draw_player !fireboy;
-
+    Render.draw_player !watergirl;
     Graphics.synchronize ();
 
     if Input.is_held 'q' then running := false;

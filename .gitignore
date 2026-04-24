@@ -3,4 +3,5 @@ _build/
 .merlin
 *.byte
 *.native
-*.opam.locked
+*.opam.locked.DS_Store
+**/.DS_Store

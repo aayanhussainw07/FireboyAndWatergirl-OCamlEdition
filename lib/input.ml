@@ -47,3 +47,31 @@ let poll_fireboy () =
     right = !current.right;
     jump_pressed = !current.jump && not !previous.jump;
   }
+
+
+  let current_wg = ref empty
+let previous_wg = ref empty
+
+let sample_wg () =
+  {
+    left = key_down 'a';
+    right = key_down 'd';
+    jump = key_down 'w';
+    quit = key_down 'q';
+  }
+
+let drain () =
+  previous := !current;
+  previous_wg := !current_wg;
+  while Graphics.key_pressed () do
+    ignore (Graphics.read_key ())
+  done;
+  current := sample ();
+  current_wg := sample_wg ()
+
+let poll_watergirl () =
+  {
+    left = !current_wg.left;
+    right = !current_wg.right;
+    jump_pressed = !current_wg.jump && not !previous_wg.jump;
+  }
