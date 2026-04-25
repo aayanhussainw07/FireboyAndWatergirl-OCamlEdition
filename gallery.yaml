@@ -17,9 +17,12 @@ publish: true
 # Pithy title
 title: "Fireboy & Watergirl"
 # OK if this is a Cornell Github link, but public gallery viewers won't be able to see it.
-git-repo: "https://github.com/cs3110/textbook"
+git-repo: "https://github.com/aayanhussainw07/FireboyAndWatergirl-OCamlEdition"
 # Replace the URL with your own demo video.
-demo-video-url: "REPLACE THIS https://www.youtube.com/watch?v=eSBybJGZoCU"
+demo-video-url: "https://www.youtube.com/watch?v=ZIYiZ3dJ86U"
 # Write a short, attention-grabbing description of your project.
 desc: >
-  TO DO
+  An OCaml implementation of the online video game Fireboy and Watergirl. 
+  Two players guide a fire character and a water character through tile-based levels, 
+  collecting gems and avoiding element-specific hazards — Fireboy dies in water, Watergirl dies in fire, 
+  and both die in acid.
