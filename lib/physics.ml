@@ -9,9 +9,7 @@ let friction = 0.3 *. reference_fps *. reference_fps
 
 let apply_friction vx dt =
   let drag = friction *. dt in
-  if vx > drag then vx -. drag
-  else if vx < -.drag then vx +. drag
-  else 0.0
+  if vx > drag then vx -. drag else if vx < -.drag then vx +. drag else 0.0
 
 let update dt (p : player) (k : keys) : player =
   (* calculating horizontal velocity *)
